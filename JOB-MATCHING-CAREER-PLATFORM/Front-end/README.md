@@ -28,6 +28,25 @@ core routing=>
 5.full crud operation
 features: mappping,routing,props,useState,useEffect
 
+//hooks => react js provided predifine hooks methode
+viratual dom provided hooks functioality.
+react state managment=>
+
+useState()=>
+const [state,setState] = usestate(intialvalue);
+//booking-addcart
+const [count,setCount] = usestate(0);
+//form handelling
+const [name,setName] = usestate("");
+const [form,setForm] = usestate({name:"",location:"".....});
+const [data,setData] = usestate([]);
+useEffect()=>
+
+useEffect(()=>{
+    //fetch work
+
+},[]);
+
 
 
 
