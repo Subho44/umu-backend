@@ -1,6 +1,12 @@
+import axios from 'axios'
 import React from 'react'
 import { Card,Button } from 'react-bootstrap'
-const Jobcard = ({job,onDelete,onEdit}) => {
+const Jobcard = ({job,fetchjobs,setSelectedjob}) => {
+
+  const hd = async()=>{
+    await axios.delete(`http://localhost:5700/api/jobs/${job._id}`);
+    fetchjobs();
+  }
 
   return <>
   <Card>
@@ -10,8 +16,8 @@ const Jobcard = ({job,onDelete,onEdit}) => {
   <Card.Text>{job.description}</Card.Text>
   <Card.Text><b>Location:</b>{job.location}</Card.Text>
   <Card.Text><b>Salary:</b>{job.salary}</Card.Text>
-  <Button variant='danger' onClick={()=>onDelete(job._id)}>Delete</Button>
- <Button variant='primary' onClick={()=>onEdit(job)}>Edit</Button>
+  <Button variant='danger' onClick={hd}>Delete</Button>
+ <Button variant='primary' onClick={()=>setSelectedjob(job)}>Edit</Button>
   </Card.Body>
 
   </Card>

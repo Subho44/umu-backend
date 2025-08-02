@@ -9,4 +9,4 @@ const jobSchema = new mongoose.Schema({
     postedat: { type:Date, default:Date.now },
 
 });
-module.exports = mongoose.model('Job',jobSchema);
+module.exports = mongoose.model('Job-data',jobSchema);
