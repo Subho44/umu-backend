@@ -3,17 +3,18 @@ import axios from 'axios'
 import { Col, Container,Row } from 'react-bootstrap'
 import Jobcard from '../components/Jobcard';
 import Jobform from '../components/Jobform';
-const Home = ({}) => {
+const Home = () => {
  const [jobs,setJobs] = useState([]);
  const [selectedjob,setSelectedjob] = useState(null);
+ const [search,setSearch] = useState('');
  const fetchjobs = async()=>{
-  const res = await axios.get('http://localhost:5700/api/jobs');
+  const res = await axios.get(`http://localhost:5700/api/jobs?search=${search}`);
   setJobs(res.data);
  };
   
  useEffect(()=>{
   fetchjobs();
- },[]);
+ },[search]);
 
   return <>
   <Container>
