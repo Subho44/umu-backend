@@ -4,6 +4,7 @@ const cors = require('cors');
 const connectdb = require('./config/db');
 const jobRoutes = require('./routes/jobRoutes');
 const authRoutes = require('./routes/authRoutes');
+const bookingRoutes = require('./routes/bookingRoutes');
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5700;
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use('/api/jobs',jobRoutes);
 app.use('/api/auth',authRoutes);
+app.use('/api/payment',bookingRoutes);
 
 app.get('/',(req,res)=>{
     res.send('Api is working');
